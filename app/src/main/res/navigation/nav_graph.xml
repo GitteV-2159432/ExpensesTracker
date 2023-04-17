@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/groepLijstFragment">
+
+    <fragment
+        android:id="@+id/groepLijstFragment"
+        android:name="com.example.expensestracker.GroepLijstFragment"
+        android:label="GroepLijstFragment">
+        <action
+            android:id="@+id/action_groepLijstFragment_to_addGroepFragment"
+            app:destination="@+id/addGroepFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addGroepFragment"
+        android:name="com.example.expensestracker.AddGroepFragment"
+        android:label="AddGroepFragment">
+        <action
+            android:id="@+id/action_addGroepFragment_to_groepLijstFragment"
+            app:destination="@+id/groepLijstFragment"/>
+    </fragment>
+
+</navigation>

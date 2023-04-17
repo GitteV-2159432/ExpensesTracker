@@ -1,4 +1,13 @@
 package com.example.expensestracker.model
 
-@kotlinx.serialization.Serializable
-data class Groep (val naam: String, val bedrag: Int) : java.io.Serializable{}
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import kotlinx.serialization.Serializable
+
+@Serializable
+@Entity
+data class Groep (
+    @ColumnInfo(name = "naam")val naam: String,
+    @ColumnInfo(name = "bedrag")val bedrag: Int,
+    @PrimaryKey(autoGenerate = true) var id: Int = 0): java.io.Serializable{}
