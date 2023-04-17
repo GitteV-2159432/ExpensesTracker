@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import com.example.expensestracker.model.Expense
 import com.example.expensestracker.model.Groep
 
 @Dao
@@ -22,4 +23,6 @@ interface GroepLijstDao {
 
     @Insert
     fun insert(groep: Groep)
+
+
 }

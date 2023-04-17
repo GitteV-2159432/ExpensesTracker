@@ -10,4 +10,9 @@ import kotlinx.serialization.Serializable
 data class Groep (
     @ColumnInfo(name = "naam")val naam: String,
     @ColumnInfo(name = "bedrag")val bedrag: Int,
-    @PrimaryKey(autoGenerate = true) var id: Int = 0): java.io.Serializable{}
+    @PrimaryKey(autoGenerate = true) var id: Int = 0): java.io.Serializable{
+
+        companion object {
+            val GROEP_ID = "GameId"
+        }
+    }

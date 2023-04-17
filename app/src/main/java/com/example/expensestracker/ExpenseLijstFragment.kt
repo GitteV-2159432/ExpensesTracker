@@ -8,61 +8,64 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.expensestracker.databinding.FragmentGroeplijstBinding
+import com.example.expensestracker.databinding.FragmentExpenselijstBinding
+import com.example.expensestracker.model.Expense
 import com.example.expensestracker.model.Groep
 import com.example.expensestracker.model.GroepLijstRepository
 import com.example.expensestracker.model.room.GroepLijstRoomRepository
 
 
-class GroepLijstFragment: Fragment(R.layout.fragment_groeplijst) {
-
+class ExpenseLijstFragment: Fragment(R.layout.fragment_expenselijst) {
     private val groeplijst = arrayListOf<Groep>()
-    private lateinit var groepLijstRepository: GroepLijstRepository
+    private val expenselijst = arrayListOf<Expense>()
 
-    private lateinit var binding: FragmentGroeplijstBinding
+
+    private lateinit var binding: FragmentExpenselijstBinding
     private lateinit var main: MainActivity
-    private lateinit var adapter: GroepLijstAdapter
+    private lateinit var adapter: ExpenseLijstAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentGroeplijstBinding.inflate(layoutInflater)
+        binding = FragmentExpenselijstBinding.inflate(layoutInflater)
         main = activity as MainActivity
-        groepLijstRepository = GroepLijstRoomRepository(main.applicationContext)
-
-        laadGroepen()
-
-        adapter = GroepLijstAdapter(groeplijst)
-        binding.rvGroepLijst.adapter = adapter
-        binding.rvGroepLijst.layoutManager = LinearLayoutManager(this.context)
 
 
-        binding.btnAddGroep.setOnClickListener{
-            groepLijstRepository.save(groeplijst)
+        adapter = ExpenseLijstAdapter(expenselijst)
+        binding.rvExpenseLijst.adapter = adapter
+        binding.rvExpenseLijst.layoutManager = LinearLayoutManager(this.context)
+
+
+       /* binding.btnAddExpense.setOnClickListener{
+            expenseLijstRepository.save(expenselijst)
             findNavController().navigate(R.id.action_groepLijstFragment_to_addGroepFragment)
-        }
+        }*/
 
         return binding.root
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
+   /* override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         groepLijstRepository.save(groeplijst)
     }
 
-    private fun laadGroepen(){
+    private fun laadExpenses(){
         groeplijst.clear()
+        expenselijst.clear()
+        expenselijst.addAll(groepLijstRepository.getExpenses())
         groeplijst.addAll(groepLijstRepository.load())
     }
 
-    fun selecteerGroep(groep: Groep){
+    /*fun selecteerGroep(groep: Groep){
         findNavController().navigate(R.id.action_groepLijstFragment_to_ExpenseLijstFragment, bundleOf(Groep.GROEP_ID to groep.id.toString()))
-    }
+    }*/
 
     fun clearAllItems() {
         groeplijst.clear()
+        expenselijst.clear()
         adapter.notifyDataSetChanged()
-    }
+    }*/
 }

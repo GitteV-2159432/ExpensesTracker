@@ -23,7 +23,7 @@ class GroepLijstAdapter(val items: List<Groep>): RecyclerView.Adapter<GroepLijst
         val groep = items[position]
         holder.itemView.apply {
             setOnClickListener{
-                parentFragment.selectGroep(groep)
+                parentFragment.selecteerGroep(groep)
                 true
             }
 

@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_groepLijstFragment_to_addGroepFragment"
             app:destination="@+id/addGroepFragment" />
+        <action
+            android:id="@+id/action_groepLijstFragment_to_ExpenseLijstFragment"
+            app:destination="@+id/expenseLijstFragment"/>
     </fragment>
 
     <fragment
@@ -20,6 +23,13 @@
         <action
             android:id="@+id/action_addGroepFragment_to_groepLijstFragment"
             app:destination="@+id/groepLijstFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/expenseLijstFragment"
+        android:name="com.example.expensestracker.ExpenseLijstFragment"
+        android:label="ExpenseLijstFragment">
+
     </fragment>
 
 </navigation>

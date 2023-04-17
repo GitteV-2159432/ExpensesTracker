@@ -40,6 +40,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_groepLijstFragment_to_ExpenseLijstFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_groepLijstFragment_to_addGroepFragment">
                               <value>
                                 <LayoutPositions />

@@ -2,6 +2,7 @@ package com.example.expensestracker.model.room
 
 import android.content.Context
 import androidx.room.Room
+import com.example.expensestracker.model.Expense
 import com.example.expensestracker.model.Groep
 import com.example.expensestracker.model.GroepLijstRepository
 
@@ -28,4 +29,5 @@ class GroepLijstRoomRepository(appContext: Context): GroepLijstRepository {
             dao.insert(items)
         }
     }
+
 }
