@@ -38,34 +38,30 @@ class ExpenseLijstFragment: Fragment(R.layout.fragment_expenselijst) {
         binding.rvExpenseLijst.adapter = adapter
         binding.rvExpenseLijst.layoutManager = LinearLayoutManager(this.context)
 
+        laadExpenses()
 
-       /* binding.btnAddExpense.setOnClickListener{
-            expenseLijstRepository.save(expenselijst)
-            findNavController().navigate(R.id.action_groepLijstFragment_to_addGroepFragment)
-        }*/
-
+        binding.btnAddExpense.setOnClickListener{
+            findNavController().navigate(R.id.action_expenseLijstFragment_to_addExpenseFragment)
+        }
         return binding.root
     }
 
-   /* override fun onSaveInstanceState(outState: Bundle) {
+   override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        groepLijstRepository.save(groeplijst)
     }
 
     private fun laadExpenses(){
         groeplijst.clear()
         expenselijst.clear()
-        expenselijst.addAll(groepLijstRepository.getExpenses())
-        groeplijst.addAll(groepLijstRepository.load())
     }
 
-    /*fun selecteerGroep(groep: Groep){
-        findNavController().navigate(R.id.action_groepLijstFragment_to_ExpenseLijstFragment, bundleOf(Groep.GROEP_ID to groep.id.toString()))
-    }*/
+   fun selecteerExpense(expense: Expense){
+        findNavController().navigate(R.id.action_expenseLijstFragment_to_expenseDetailFragment, bundleOf(Expense.EXPENSE_ID to expense.id.toString()))
+    }
 
     fun clearAllItems() {
         groeplijst.clear()
         expenselijst.clear()
         adapter.notifyDataSetChanged()
-    }*/
+    }
 }

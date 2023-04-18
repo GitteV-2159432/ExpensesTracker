@@ -14,4 +14,9 @@ data class Expense (
     @ColumnInfo(name = "dag") val dag: Int,
     @ColumnInfo(name = "maand")val maand: Int,
     @ColumnInfo(name = "jaar")val jaar: Int,
-    @PrimaryKey(autoGenerate = true) var id: Int = 0): java.io.Serializable{}
+    @PrimaryKey(autoGenerate = true) var id: Int = 0): java.io.Serializable{
+
+    companion object {
+        val EXPENSE_ID = "GameId"
+    }
+    }

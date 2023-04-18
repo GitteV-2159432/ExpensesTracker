@@ -29,7 +29,27 @@
         android:id="@+id/expenseLijstFragment"
         android:name="com.example.expensestracker.ExpenseLijstFragment"
         android:label="ExpenseLijstFragment">
+        <action
+            android:id="@+id/action_expenseLijstFragment_to_addExpenseFragment"
+            app:destination="@+id/addExpenseFragment"/>
+        <action
+            android:id="@+id/action_expenseLijstFragment_to_expenseDetailFragment"
+            app:destination="@+id/expenseDetailFragment"/>
+    </fragment>
 
+    <fragment
+        android:id="@+id/addExpenseFragment"
+        android:name="com.example.expensestracker.AddExpenseFragment"
+        android:label="AddExpenseFragment">
+        <action
+            android:id="@+id/action_addExpenseFragment_to_expenseLijstFragment"
+            app:destination="@+id/expenseLijstFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/expenseDetailFragment"
+        android:name="com.example.expensestracker.ExpenseDetailFragment"
+        android:label="ExpenseDetail">
     </fragment>
 
 </navigation>

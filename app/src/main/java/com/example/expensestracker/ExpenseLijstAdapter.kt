@@ -22,10 +22,10 @@ class ExpenseLijstAdapter(val items: List<Expense>): RecyclerView.Adapter<Expens
     override fun onBindViewHolder(holder: ExpenseLijstViewHolder, position: Int) {
         val expense = items[position]
         holder.itemView.apply {
-            /*setOnClickListener{
-               // parentFragment.selectExpense(expense)
+            setOnClickListener{
+               parentFragment.selecteerExpense(expense)
                 true
-            }*/
+            }
 
             /*findViewById<TextView>(R.id.txtActiviteitnaam).text = groep.naam
             findViewById<TextView>(R.id.txtbedrag).text = '€' + groep.bedrag.toString()
