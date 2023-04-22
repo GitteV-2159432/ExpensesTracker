@@ -1,4 +1,4 @@
-package com.example.expensestracker
+package com.example.expensestracker.Groep
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.expensestracker.R
 import com.example.expensestracker.model.Groep
 
 class GroepLijstAdapter(val items: List<Groep>): RecyclerView.Adapter<GroepLijstAdapter.GroepLijstViewHolder>() {

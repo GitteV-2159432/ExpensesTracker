@@ -1,4 +1,4 @@
-package com.example.expensestracker
+package com.example.expensestracker.Expense
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.expensestracker.R
 import com.example.expensestracker.model.Expense
+import java.util.*
 
 class ExpenseLijstAdapter(val items: List<Expense>): RecyclerView.Adapter<ExpenseLijstAdapter.ExpenseLijstViewHolder>() {
     private lateinit var parentFragment: ExpenseLijstFragment
@@ -27,9 +29,11 @@ class ExpenseLijstAdapter(val items: List<Expense>): RecyclerView.Adapter<Expens
                 true
             }
 
-            /*findViewById<TextView>(R.id.txtActiviteitnaam).text = groep.naam
-            findViewById<TextView>(R.id.txtbedrag).text = '€' + groep.bedrag.toString()
-*/
+            findViewById<TextView>(R.id.txtExpenseNaam).text = expense.naam
+            findViewById<TextView>(R.id.txtbedrag).text = '€' + expense.bedrag.toString()
+            val date = Calendar.getInstance().time
+            findViewById<TextView>(R.id.txtDatum).text = date.toString()
+
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.expensestracker
+package com.example.expensestracker.Expense
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,15 +8,14 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.expensestracker.MainActivity
+import com.example.expensestracker.R
 import com.example.expensestracker.databinding.FragmentExpenselijstBinding
 import com.example.expensestracker.model.Expense
 import com.example.expensestracker.model.Groep
-import com.example.expensestracker.model.GroepLijstRepository
-import com.example.expensestracker.model.room.GroepLijstRoomRepository
 
 
 class ExpenseLijstFragment: Fragment(R.layout.fragment_expenselijst) {
-    private val groeplijst = arrayListOf<Groep>()
     private val expenselijst = arrayListOf<Expense>()
 
 
@@ -38,7 +37,7 @@ class ExpenseLijstFragment: Fragment(R.layout.fragment_expenselijst) {
         binding.rvExpenseLijst.adapter = adapter
         binding.rvExpenseLijst.layoutManager = LinearLayoutManager(this.context)
 
-        laadExpenses()
+        //laadExpenses()
 
         binding.btnAddExpense.setOnClickListener{
             findNavController().navigate(R.id.action_expenseLijstFragment_to_addExpenseFragment)
@@ -50,18 +49,18 @@ class ExpenseLijstFragment: Fragment(R.layout.fragment_expenselijst) {
         super.onSaveInstanceState(outState)
     }
 
-    private fun laadExpenses(){
-        groeplijst.clear()
+  /* private fun laadExpenses(){
         expenselijst.clear()
-    }
+        expenselijst.addAll(groepLijstRepository.loadGroepen())
+   }*/
 
    fun selecteerExpense(expense: Expense){
         findNavController().navigate(R.id.action_expenseLijstFragment_to_expenseDetailFragment, bundleOf(Expense.EXPENSE_ID to expense.id.toString()))
     }
 
-    fun clearAllItems() {
+    /*fun clearAllItems() {
         groeplijst.clear()
         expenselijst.clear()
         adapter.notifyDataSetChanged()
-    }
+    }*/
 }

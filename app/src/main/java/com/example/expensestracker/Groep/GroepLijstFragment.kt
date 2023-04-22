@@ -1,4 +1,4 @@
-package com.example.expensestracker
+package com.example.expensestracker.Groep
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,17 +8,20 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.expensestracker.MainActivity
+import com.example.expensestracker.R
 import com.example.expensestracker.databinding.FragmentGroeplijstBinding
+import com.example.expensestracker.model.Expense
 import com.example.expensestracker.model.Groep
+import com.example.expensestracker.model.GroepLijstPreferencesRepository
 import com.example.expensestracker.model.GroepLijstRepository
-import com.example.expensestracker.model.room.GroepLijstRoomRepository
 
 
 class GroepLijstFragment: Fragment(R.layout.fragment_groeplijst) {
 
     private val groeplijst = arrayListOf<Groep>()
     private lateinit var groepLijstRepository: GroepLijstRepository
-
+    private val expenselijst = arrayListOf<Expense>()
     private lateinit var binding: FragmentGroeplijstBinding
     private lateinit var main: MainActivity
     private lateinit var adapter: GroepLijstAdapter
@@ -30,7 +33,7 @@ class GroepLijstFragment: Fragment(R.layout.fragment_groeplijst) {
     ): View? {
         binding = FragmentGroeplijstBinding.inflate(layoutInflater)
         main = activity as MainActivity
-        groepLijstRepository = GroepLijstRoomRepository(main.applicationContext)
+        groepLijstRepository = GroepLijstPreferencesRepository(requireActivity())
 
         laadGroepen()
 
@@ -40,8 +43,10 @@ class GroepLijstFragment: Fragment(R.layout.fragment_groeplijst) {
 
 
         binding.btnAddGroep.setOnClickListener{
-            groepLijstRepository.save(groeplijst)
             findNavController().navigate(R.id.action_groepLijstFragment_to_addGroepFragment)
+        }
+        binding.btnVerwijderGroepen.setOnClickListener{
+            findNavController().navigate(R.id.action_groepLijstFragment_to_deleteGroepFragment)
         }
 
         return binding.root
@@ -49,17 +54,17 @@ class GroepLijstFragment: Fragment(R.layout.fragment_groeplijst) {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        groepLijstRepository.save(groeplijst)
+        groepLijstRepository.saveGroepen(groeplijst)
     }
 
     private fun laadGroepen(){
         groeplijst.clear()
-        groeplijst.addAll(groepLijstRepository.load())
+        groeplijst.addAll(groepLijstRepository.loadGroepen())
     }
 
-    fun selecteerGroep(groep: Groep){
-        findNavController().navigate(R.id.action_groepLijstFragment_to_ExpenseLijstFragment, bundleOf(Groep.GROEP_ID to groep.id.toString()))
-    }
+   fun selecteerGroep(groep: Groep){
+        findNavController().navigate(R.id.action_groepLijstFragment_to_ExpenseLijstFragment, bundleOf(Groep.GROEP_ID to groep.id.toString(),))
+   }
 
     fun clearAllItems() {
         groeplijst.clear()
