@@ -22,7 +22,19 @@
         android:layout_marginBottom="16dp"
         android:src="@android:drawable/ic_menu_add"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:contentDescription="Voeg nieuwe Groep toe"
+        android:contentDescription="Voeg nieuwe Expense toe"
         app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnVerwijderExpenses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="Verwijder Expense"
+        android:src="@android:drawable/ic_menu_delete"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

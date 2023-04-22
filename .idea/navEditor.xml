@@ -50,6 +50,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="expenseDetailFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="expenseLijstFragment">
                     <value>
                       <LayoutPositions>
@@ -62,6 +74,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_expenseLijstFragment_to_addExpenseFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_expenseLijstFragment_to_expenseDetailFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

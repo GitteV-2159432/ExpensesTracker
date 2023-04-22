@@ -1,9 +1,12 @@
 package com.example.expensestracker.model
 
 interface GroepLijstRepository {
-    fun load(): List<Groep>
-    fun save(groep: Groep)
-    fun save(Items: List<Groep>)
+    fun loadGroepen(): List<Groep>
+
+    fun saveGroepen(Items: List<Groep>)
+    fun saveGroep(groep: Groep)
+    fun deleteGroep(groep: Groep)
+    fun deleteAllGroepen()
 
 
 }
