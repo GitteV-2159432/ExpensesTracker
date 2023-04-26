@@ -32,8 +32,15 @@ class AddExpenseFragment: Fragment(R.layout.fragment_addexpense)  {
 
     private fun addExpense(){
         val Expense = Expense(binding.txtExpenseNaam.text.toString(), binding.txtExpenseBedrag.toString().toInt())
-
         findNavController().navigate(R.id.action_addExpenseFragment_to_expenseLijstFragment)
+
+        lateinit var receipt
+        val intentReceipt = Intent(Intent.ACTION_CALL, number) //intent voor foto van kasticket
+        if(intent.resolveActivity(applicationContext.packageManager) != null) {
+            startActivity(intentReceipt)
+        } else {
+            msg("Something went wrong, cannot take a picture")
+        }
     }
 
 }
