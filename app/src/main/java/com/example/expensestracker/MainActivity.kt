@@ -21,11 +21,12 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+/* Even dit allemaal in comment, was hier nog aan bezig maar geeft voorlopig nog een error
         //voor foto van kasticket
         pictureActivityResult = registerForActivityResult(ActivityResultContracts.TakePicturePreview()) { bm: Bitmap ->
             msg("bitmap is ${bm.height} high", binding.root)
-            // do something with the captured image
-        }
+            // TODO: iets doen met die bitmap
+        }*/
     }
 
 

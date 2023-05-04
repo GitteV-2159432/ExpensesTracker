@@ -34,13 +34,13 @@ class AddExpenseFragment: Fragment(R.layout.fragment_addexpense)  {
         val Expense = Expense(binding.txtExpenseNaam.text.toString(), binding.txtExpenseBedrag.toString().toInt())
         findNavController().navigate(R.id.action_addExpenseFragment_to_expenseLijstFragment)
 
-        lateinit var receipt
-        val intentReceipt = Intent(Intent.ACTION_CALL, number) //intent voor foto van kasticket
+        /*lateinit var receipt //Even in comment, geeft voorlopig nog een error
+        val intentReceipt = Intent(Intent.ACTION_CALL, number) //intent voor foto van kasticket TODO: wordt nog niks met de bitmap van de foto gedaan (staat in de main)
         if(intent.resolveActivity(applicationContext.packageManager) != null) {
             startActivity(intentReceipt)
         } else {
             msg("Something went wrong, cannot take a picture")
-        }
+        }*/
     }
 
 }

@@ -37,7 +37,7 @@ class ExpenseLijstFragment: Fragment(R.layout.fragment_expenselijst) {
         binding.rvExpenseLijst.adapter = adapter
         binding.rvExpenseLijst.layoutManager = LinearLayoutManager(this.context)
 
-        //laadExpenses()
+        laadExpenses()
 
         binding.btnAddExpense.setOnClickListener{
             findNavController().navigate(R.id.action_expenseLijstFragment_to_addExpenseFragment)
@@ -49,18 +49,18 @@ class ExpenseLijstFragment: Fragment(R.layout.fragment_expenselijst) {
         super.onSaveInstanceState(outState)
     }
 
-  /* private fun laadExpenses(){
-        expenselijst.clear()
-        expenselijst.addAll(groepLijstRepository.loadGroepen())
-   }*/
+   private fun laadExpenses(){
+        expenselijst.clear() //doen we anders de clear functie in de load functie?
+        expenselijst.addAll(ExpenseFileRepository.loadExpenses())
+   }
 
    fun selecteerExpense(expense: Expense){
         findNavController().navigate(R.id.action_expenseLijstFragment_to_expenseDetailFragment, bundleOf(Expense.EXPENSE_ID to expense.id.toString()))
     }
 
-    /*fun clearAllItems() {
-        groeplijst.clear()
-        expenselijst.clear()
+    fun clearAllItems() {
+        GroeplijstFileRepository.deletAllGroepen()
+        ExpenseFileRepository.deletAllExpenses()
         adapter.notifyDataSetChanged()
-    }*/
+    }
 }
