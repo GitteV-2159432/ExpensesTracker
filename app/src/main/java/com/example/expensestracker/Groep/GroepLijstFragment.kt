@@ -21,10 +21,11 @@ class GroepLijstFragment: Fragment(R.layout.fragment_groeplijst) {
 
     private val groeplijst = arrayListOf<Groep>()
     private lateinit var groepLijstRepository: GroepLijstRepository
-    private val expenselijst = arrayListOf<Expense>()
+
     private lateinit var binding: FragmentGroeplijstBinding
     private lateinit var main: MainActivity
     private lateinit var adapter: GroepLijstAdapter
+    private var expenselijst = listOf<Expense>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,9 +66,7 @@ class GroepLijstFragment: Fragment(R.layout.fragment_groeplijst) {
    fun selecteerGroep(groep: Groep){
         findNavController().navigate(R.id.action_groepLijstFragment_to_ExpenseLijstFragment, bundleOf(Groep.GROEP_ID to groep.id.toString(),))
    }
-
-    fun clearAllItems() {
-        groeplijst.clear()
-        adapter.notifyDataSetChanged()
+    fun setData(expenselijst: List<Expense>){
+        this.expenselijst = expenselijst
     }
 }

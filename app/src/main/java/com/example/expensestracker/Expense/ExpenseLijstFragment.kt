@@ -16,12 +16,10 @@ import com.example.expensestracker.model.Groep
 
 
 class ExpenseLijstFragment: Fragment(R.layout.fragment_expenselijst) {
-    private val expenselijst = arrayListOf<Expense>()
-
-
     private lateinit var binding: FragmentExpenselijstBinding
-    private lateinit var main: MainActivity
+
     private lateinit var adapter: ExpenseLijstAdapter
+    private var expenselijst = listOf<Expense>()
 
 
     override fun onCreateView(
@@ -30,14 +28,12 @@ class ExpenseLijstFragment: Fragment(R.layout.fragment_expenselijst) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentExpenselijstBinding.inflate(layoutInflater)
-        main = activity as MainActivity
 
 
         adapter = ExpenseLijstAdapter(expenselijst)
         binding.rvExpenseLijst.adapter = adapter
         binding.rvExpenseLijst.layoutManager = LinearLayoutManager(this.context)
 
-        //laadExpenses()
 
         binding.btnAddExpense.setOnClickListener{
             findNavController().navigate(R.id.action_expenseLijstFragment_to_addExpenseFragment)
@@ -49,18 +45,10 @@ class ExpenseLijstFragment: Fragment(R.layout.fragment_expenselijst) {
         super.onSaveInstanceState(outState)
     }
 
-  /* private fun laadExpenses(){
-        expenselijst.clear()
-        expenselijst.addAll(groepLijstRepository.loadGroepen())
-   }*/
+
 
    fun selecteerExpense(expense: Expense){
         findNavController().navigate(R.id.action_expenseLijstFragment_to_expenseDetailFragment, bundleOf(Expense.EXPENSE_ID to expense.id.toString()))
-    }
+   }
 
-    /*fun clearAllItems() {
-        groeplijst.clear()
-        expenselijst.clear()
-        adapter.notifyDataSetChanged()
-    }*/
 }

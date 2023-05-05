@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.expensestracker.MainActivity
@@ -17,7 +18,7 @@ import com.example.expensestracker.model.GroepLijstRepository
 
 class AddGroepFragment: Fragment(R.layout.fragment_addgroep) {
     private lateinit var binding: FragmentAddgroepBinding
-    private lateinit var main: MainActivity
+
     private lateinit var groepLijstRepository: GroepLijstRepository
     private val expensesLijst = mutableListOf<Expense>()
     private val groepLijstFragment = GroepLijstFragment()
@@ -28,10 +29,16 @@ class AddGroepFragment: Fragment(R.layout.fragment_addgroep) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAddgroepBinding.inflate(layoutInflater)
-        main = activity as MainActivity
+
         groepLijstRepository = GroepLijstPreferencesRepository(requireActivity())
         binding.txtAddActiviteit.text= "Naam activiteit:"
 
+        val groep = arguments?.getSerializable("groep") as Groep?
+        groep?.let{
+            expensesLijst.addAll(it.expenses)
+        }
+
+        groepLijstFragment.setData(expensesLijst)
 
         binding.btnAddActivity.setOnClickListener{
             addGroep()
@@ -42,6 +49,7 @@ class AddGroepFragment: Fragment(R.layout.fragment_addgroep) {
     private fun addGroep(){
         val groep = Groep(binding.txtActiviteitNaam.text.toString(), 0, listOf())
         groepLijstRepository.saveGroep(groep)
+        val bundle = bundleOf("groep" to groep)
         findNavController().navigate(R.id.action_addGroepFragment_to_groepLijstFragment)
     }
 }
