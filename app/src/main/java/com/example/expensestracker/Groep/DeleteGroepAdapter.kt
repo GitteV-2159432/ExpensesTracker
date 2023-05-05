@@ -22,7 +22,7 @@ class DeleteGroepAdapter(val groeplijst: List<Groep>, val deleteGroepLijst: Arra
         val currentItem = groeplijst[position]
         holder.itemView.apply {
             val checkBox = findViewById<CheckBox>(R.id.checkBoxDeleteGroep)
-            checkBox.text = currentItem.naam
+            checkBox.text = currentItem.getNaam()
             checkBox.isChecked = checkedGroepLijst.contains(position)
 
             checkBox.setOnCheckedChangeListener{_, isChecked ->

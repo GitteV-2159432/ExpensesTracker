@@ -28,8 +28,8 @@ class GroepLijstAdapter(val items: List<Groep>): RecyclerView.Adapter<GroepLijst
                 true
             }
 
-            findViewById<TextView>(R.id.txtActiviteitnaam).text = groep.naam
-            findViewById<TextView>(R.id.txtbedrag).text = '€' + groep.bedrag.toString()
+            findViewById<TextView>(R.id.txtActiviteitnaam).text = groep.getNaam()
+            findViewById<TextView>(R.id.txtbedrag).text = '€' + groep.getTotal().toString()
 
         }
     }

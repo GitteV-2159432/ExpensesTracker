@@ -13,7 +13,7 @@ class GroepLijstPreferencesRepository(val activity: FragmentActivity): GroepLijs
         val groepGson = gson.toJson(groep)
         val sharedPref = activity.getSharedPreferences(activity.getString(R.string.groep_data),Context.MODE_PRIVATE)
         with(sharedPref.edit()){
-            putString(groep.naam, groepGson)
+            putString(groep.getNaam(), groepGson)
             apply()
         }
     }
@@ -33,11 +33,22 @@ class GroepLijstPreferencesRepository(val activity: FragmentActivity): GroepLijs
         }
         return groepLijst
     }
+    override fun getGroep(naam: String?): Groep {
+        val sharedPref = activity.getSharedPreferences(activity.getString(R.string.groep_data),Context.MODE_PRIVATE)
+        val groepJSON = sharedPref.getString(naam,"NOTHING")
+        if (groepJSON.equals("NOTHING")) {
+            System.out.println("groep " + naam + " niet gevonden")
+            return Groep("NOTHING")
+        }
+        val groep = Gson().fromJson(groepJSON, Groep::class.java)
+        return groep
+    }
+
 
     override fun deleteGroep(groep: Groep) {
         val sharedPref = activity.getSharedPreferences(activity.getString(R.string.groep_data), Context.MODE_PRIVATE)
         sharedPref.edit{
-            remove(groep.naam)
+            remove(groep.getNaam())
             commit()
         }
     }
@@ -49,6 +60,4 @@ class GroepLijstPreferencesRepository(val activity: FragmentActivity): GroepLijs
             commit()
         }
     }
-
-
 }
