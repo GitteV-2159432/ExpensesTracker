@@ -8,12 +8,15 @@ import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.expensestracker.R
 import com.example.expensestracker.model.Expense
-import java.util.*
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
-class ExpenseLijstAdapter(val items: List<Expense>): RecyclerView.Adapter<ExpenseLijstAdapter.ExpenseLijstViewHolder>() {
+class ExpenseLijstAdapter(val items: List<Expense>) :
+    RecyclerView.Adapter<ExpenseLijstAdapter.ExpenseLijstViewHolder>() {
     private lateinit var parentFragment: ExpenseLijstFragment
 
-    inner class ExpenseLijstViewHolder(currentItemView: View): RecyclerView.ViewHolder(currentItemView)
+    inner class ExpenseLijstViewHolder(currentItemView: View) :
+        RecyclerView.ViewHolder(currentItemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExpenseLijstViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_expense, parent, false)
@@ -24,16 +27,16 @@ class ExpenseLijstAdapter(val items: List<Expense>): RecyclerView.Adapter<Expens
     override fun onBindViewHolder(holder: ExpenseLijstViewHolder, position: Int) {
         val expense = items[position]
         holder.itemView.apply {
-            setOnClickListener{
-               parentFragment.selecteerExpense(expense)
+            setOnClickListener {
+                parentFragment.selecteerExpense(expense)
                 true
             }
 
-            findViewById<TextView>(R.id.txtExpenseNaam).text = expense.naam
-            findViewById<TextView>(R.id.txtbedrag).text = '€' + expense.bedrag.toString()
-            val date = Calendar.getInstance().time
+            findViewById<TextView>(R.id.txtExpenseNaam).text = expense.getNaam().toString()
+            findViewById<TextView>(R.id.txtbedrag).text = '€' + expense.getBedrag().toString()
+            val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+            val date = LocalDate.now().format(formatter)
             findViewById<TextView>(R.id.txtDatum).text = date.toString()
-
         }
     }
 

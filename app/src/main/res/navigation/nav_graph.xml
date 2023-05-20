@@ -2,31 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/groepLijstFragment">
+    app:startDestination="@id/expenseLijstFragment">
 
-    <fragment
-        android:id="@+id/groepLijstFragment"
-        android:name="com.example.expensestracker.Groep.GroepLijstFragment"
-        android:label="GroepLijstFragment">
-        <action
-            android:id="@+id/action_groepLijstFragment_to_addGroepFragment"
-            app:destination="@+id/addGroepFragment" />
-        <action
-            android:id="@+id/action_groepLijstFragment_to_ExpenseLijstFragment"
-            app:destination="@+id/expenseLijstFragment"/>
-        <action
-            android:id="@+id/action_groepLijstFragment_to_deleteGroepFragment"
-            app:destination="@+id/deleteGroepFragment"/>
-    </fragment>
-
-    <fragment
-        android:id="@+id/addGroepFragment"
-        android:name="com.example.expensestracker.Groep.AddGroepFragment"
-        android:label="AddGroepFragment">
-        <action
-            android:id="@+id/action_addGroepFragment_to_groepLijstFragment"
-            app:destination="@+id/groepLijstFragment"/>
-    </fragment>
 
     <fragment
         android:id="@+id/expenseLijstFragment"
@@ -38,7 +15,11 @@
         <action
             android:id="@+id/action_expenseLijstFragment_to_expenseDetailFragment"
             app:destination="@+id/expenseDetailFragment"/>
+        <action
+            android:id="@+id/action_expenseLijstFragment_to_deleteExpenseFragment"
+            app:destination="@+id/deleteExpenseFragment"/>
     </fragment>
+
 
     <fragment
         android:id="@+id/addExpenseFragment"
@@ -49,19 +30,21 @@
             app:destination="@+id/expenseLijstFragment"/>
     </fragment>
 
+
     <fragment
         android:id="@+id/expenseDetailFragment"
         android:name="com.example.expensestracker.Expense.ExpenseDetailFragment"
         android:label="ExpenseDetail">
     </fragment>
 
+
     <fragment
-        android:id="@+id/deleteGroepFragment"
-        android:name="com.example.expensestracker.Groep.DeleteGroepFragment"
-        android:label="DeleteGroepFragment">
+        android:id="@+id/deleteExpenseFragment"
+        android:name="com.example.expensestracker.Expense.DeleteExpenseFragment"
+        android:label="DeleteExpenseFragment">
         <action
-            android:id="@+id/action_deleteGroepFragment_to_groepLijstFragment"
-            app:destination="@+id/groepLijstFragment"/>
+            android:id="@+id/action_deleteExpenseFragment_to_expenseLijstFragment"
+            app:destination="@+id/expenseLijstFragment"/>
     </fragment>
 
 </navigation>

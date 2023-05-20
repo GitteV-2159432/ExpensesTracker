@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">ExpensesTracker</string>
-    <string name="groep_data">groep_Data</string>
+    <string name="expense_data">expense_Data</string>
 </resources>

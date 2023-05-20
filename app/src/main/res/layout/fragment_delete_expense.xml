@@ -29,7 +29,7 @@
             app:layout_constraintVertical_bias="0.521" />
 
         <ImageButton
-            android:id="@+id/btnDeleteGroep"
+            android:id="@+id/btnDeleteExpense"
             android:layout_width="50dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"

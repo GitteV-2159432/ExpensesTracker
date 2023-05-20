@@ -3,38 +3,39 @@ package com.example.expensestracker.model
 import kotlinx.serialization.Serializable
 
 @Serializable
-class Groep:java.io.Serializable {
+class Groep : java.io.Serializable {
     private var naam: String
     private val expenses = arrayListOf<Expense>()
-    private var  id : Int = 0
+    private var id: Int = 0
 
     constructor(naam: String) {
         this.naam = naam
     }
 
-    fun addExpense(uitgave:Expense) {
+    fun addExpense(uitgave: Expense) {
         expenses.add(uitgave)
     }
-    fun loadExpenses(): ArrayList<Expense>{
+
+    fun loadExpenses(): ArrayList<Expense> {
         return expenses
     }
 
-    fun getNaam(): String{
-        return naam;
+    fun getNaam(): String {
+        return naam
     }
 
-    fun getId(): Int{
+    fun getId(): Int {
         return id
     }
 
-    fun setId(id: Int){
-        this.id = id;
+    fun setId(id: Int) {
+        this.id = id
     }
 
-    fun getTotal() : Double{
-        var total:Double = 0.0
+    fun getTotal(): Double {
+        var total: Double = 0.0
         for (e: Expense in expenses) {
-            total += e.bedrag
+            total += e.getBedrag()
         }
         return total
     }

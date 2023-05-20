@@ -7,11 +7,10 @@
     android:padding="2dp">
 
     <CheckBox
-        android:id="@+id/checkBoxDeleteGroep"
+        android:id="@+id/checkBoxDeleteExpense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="?attr/colorSecondaryVariant"
-        android:text="RecipeName"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
