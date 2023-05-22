@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/mnuClear"
-        android:title="Verwijder alle groepen" />
+        android:id="@+id/mnu_navToDelete"
+        android:title="Navigate to Delete expenses" />
+    <item
+        android:id="@+id/mnu_navToList"
+        android:title="Navigate to Expenses List"/>
+    <item
+        android:id="@+id/mnu_navToAddExpense"
+        android:title="Add an expense"/>
 
 </menu>

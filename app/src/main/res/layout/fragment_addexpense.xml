@@ -20,11 +20,14 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/btnAddExpense"
+        android="@color/Persian_blue"
         android:layout_width="301dp"
         android:layout_height="76dp"
         android:text="Voeg Expense toe"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="24sp"
+        app:chipBackgroundColor="#810F0F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

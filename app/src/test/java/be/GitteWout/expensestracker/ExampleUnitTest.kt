@@ -1,4 +1,4 @@
-package com.example.expensestracker
+package be.GitteWout.expensestracker
 
 import org.junit.Test
 

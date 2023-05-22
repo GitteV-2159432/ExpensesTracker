@@ -1,4 +1,4 @@
-package com.example.expensestracker.Expense
+package be.GitteWout.expensestracker.Expense
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.expensestracker.R
 import com.example.expensestracker.databinding.FragmentDeleteExpenseBinding
-import com.example.expensestracker.model.Expense
-import com.example.expensestracker.model.ExpensePreferencesRepository
+import be.GitteWout.expensestracker.model.Expense
+import be.GitteWout.expensestracker.model.ExpensePreferencesRepository
 
 
 class DeleteExpenseFragment : Fragment(R.layout.fragment_delete_expense) {

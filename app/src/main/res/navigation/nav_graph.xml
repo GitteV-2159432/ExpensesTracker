@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/expenseLijstFragment"
-        android:name="com.example.expensestracker.Expense.ExpenseLijstFragment"
+        android:name="be.GitteWout.expensestracker.Expense.ExpenseLijstFragment"
         android:label="ExpenseLijstFragment">
         <action
             android:id="@+id/action_expenseLijstFragment_to_addExpenseFragment"
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/addExpenseFragment"
-        android:name="com.example.expensestracker.Expense.AddExpenseFragment"
+        android:name="be.GitteWout.expensestracker.Expense.AddExpenseFragment"
         android:label="AddExpenseFragment">
         <action
             android:id="@+id/action_addExpenseFragment_to_expenseLijstFragment"
@@ -33,18 +33,26 @@
 
     <fragment
         android:id="@+id/expenseDetailFragment"
-        android:name="com.example.expensestracker.Expense.ExpenseDetailFragment"
+        android:name="be.GitteWout.expensestracker.Expense.ExpenseDetailFragment"
         android:label="ExpenseDetail">
     </fragment>
 
 
     <fragment
         android:id="@+id/deleteExpenseFragment"
-        android:name="com.example.expensestracker.Expense.DeleteExpenseFragment"
+        android:name="be.GitteWout.expensestracker.Expense.DeleteExpenseFragment"
         android:label="DeleteExpenseFragment">
         <action
             android:id="@+id/action_deleteExpenseFragment_to_expenseLijstFragment"
             app:destination="@+id/expenseLijstFragment"/>
     </fragment>
-
+    <action
+        android:id="@+id/action_menu_deleteExpenseFragment"
+        app:destination="@+id/deleteExpenseFragment"/>
+    <action
+        android:id="@+id/action_menu_expenseLijstFragment"
+        app:destination="@+id/expenseLijstFragment"/>
+    <action
+        android:id="@+id/action_menu_addExpenseFragment"
+        app:destination="@+id/addExpenseFragment"/>
 </navigation>

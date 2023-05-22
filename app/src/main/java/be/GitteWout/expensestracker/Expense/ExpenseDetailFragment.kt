@@ -1,4 +1,4 @@
-package com.example.expensestracker.Expense
+package be.GitteWout.expensestracker.Expense
 
 
 import android.os.Bundle
@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.expensestracker.R
 import com.example.expensestracker.databinding.FragmentExpensedetailBinding
-import com.example.expensestracker.model.ExpensePreferencesRepository
-import com.example.expensestracker.model.ImageFileRepository
+import be.GitteWout.expensestracker.model.ExpensePreferencesRepository
+import be.GitteWout.expensestracker.model.ImageFileRepository
 
 class ExpenseDetailFragment : Fragment(R.layout.fragment_expensedetail) {
 
@@ -30,15 +30,16 @@ class ExpenseDetailFragment : Fragment(R.layout.fragment_expensedetail) {
         val expense = expenseRepository.getExpense(expenseNaam)
 
         binding.txtnaamDetail2.text = expense.getNaam()
-        binding.txtBedragDetail2.text = expense.getBedrag().toString()
+        binding.txtBedragDetail2.text = "€" + expense.getBedrag().toString()
 
         expense.getImagePath().let {
             if (it != null) {
                 imageRepository.loadImage(it)?.let {
                     binding.imageRekening.setImageBitmap(it)
                 }
-            }else{
+            } else {
                 binding.txtGeenFoto.text = "Geen kassaticket beschikbaar"
+                binding.txtkassaticket.text = ""
             }
         }
 

@@ -1,4 +1,4 @@
-package com.example.expensestracker.Expense
+package be.GitteWout.expensestracker.Expense
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.expensestracker.R
-import com.example.expensestracker.model.Expense
+import be.GitteWout.expensestracker.model.Expense
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 

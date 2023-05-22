@@ -1,4 +1,4 @@
-package com.example.expensestracker.model
+package be.GitteWout.expensestracker.model
 
 enum class Tag {
     Work,

@@ -1,4 +1,4 @@
-package com.example.expensestracker.model
+package be.GitteWout.expensestracker.model
 
 interface ExpenseRepository {
     fun loadExpenses(): List<Expense>

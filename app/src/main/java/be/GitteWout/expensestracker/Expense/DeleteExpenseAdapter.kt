@@ -1,4 +1,4 @@
-package com.example.expensestracker.Expense
+package be.GitteWout.expensestracker.Expense
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
 import com.example.expensestracker.R
-import com.example.expensestracker.model.Expense
+import be.GitteWout.expensestracker.model.Expense
 
 class DeleteExpenseAdapter(
     val expenselijst: List<Expense>,

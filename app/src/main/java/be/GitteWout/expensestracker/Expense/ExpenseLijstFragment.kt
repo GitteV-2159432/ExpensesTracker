@@ -1,4 +1,4 @@
-package com.example.expensestracker.Expense
+package be.GitteWout.expensestracker.Expense
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,12 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.expensestracker.MainActivity
+import be.GitteWout.expensestracker.MainActivity
 import com.example.expensestracker.R
 import com.example.expensestracker.databinding.FragmentExpenselijstBinding
-import com.example.expensestracker.model.Expense
-import com.example.expensestracker.model.ExpensePreferencesRepository
-import com.example.expensestracker.model.ExpenseRepository
+import be.GitteWout.expensestracker.model.Expense
+import be.GitteWout.expensestracker.model.ExpensePreferencesRepository
+import be.GitteWout.expensestracker.model.ExpenseRepository
 
 
 class ExpenseLijstFragment : Fragment(R.layout.fragment_expenselijst) {
@@ -22,7 +22,7 @@ class ExpenseLijstFragment : Fragment(R.layout.fragment_expenselijst) {
     private lateinit var main: MainActivity
     private lateinit var adapter: ExpenseLijstAdapter
     private lateinit var expenseRepository: ExpenseRepository
-
+    private var counter = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +35,6 @@ class ExpenseLijstFragment : Fragment(R.layout.fragment_expenselijst) {
         expenseRepository = ExpensePreferencesRepository(requireActivity())
 
         laadExpenses()
-
         adapter = ExpenseLijstAdapter(expenselijst)
         binding.rvExpenseLijst.adapter = adapter
         binding.rvExpenseLijst.layoutManager = LinearLayoutManager(this.context)
@@ -52,7 +51,7 @@ class ExpenseLijstFragment : Fragment(R.layout.fragment_expenselijst) {
         return binding.root
     }
 
-    private fun laadExpenses() {
+    fun laadExpenses() {
         expenselijst.clear()
         expenselijst.addAll(expenseRepository.loadExpenses())
     }
@@ -62,5 +61,10 @@ class ExpenseLijstFragment : Fragment(R.layout.fragment_expenselijst) {
             R.id.action_expenseLijstFragment_to_expenseDetailFragment,
             bundleOf("naam" to expense.getNaam())
         )
+    }
+
+    fun clearAllItems() {
+        expenselijst.clear()
+        adapter.notifyDataSetChanged()
     }
 }

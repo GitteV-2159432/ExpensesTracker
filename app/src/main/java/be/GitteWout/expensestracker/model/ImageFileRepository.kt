@@ -1,4 +1,4 @@
-package com.example.expensestracker.model
+package be.GitteWout.expensestracker.model
 
 import android.content.Context
 import android.graphics.Bitmap
