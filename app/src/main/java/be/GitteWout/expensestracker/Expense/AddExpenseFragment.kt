@@ -11,11 +11,14 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import be.GitteWout.expensestracker.MainActivity
-import com.example.expensestracker.R
-import com.example.expensestracker.databinding.FragmentAddexpenseBinding
+import be.GitteWout.expensestracker.R
+import be.GitteWout.expensestracker.databinding.FragmentAddexpenseBinding
 import be.GitteWout.expensestracker.model.Expense
 import be.GitteWout.expensestracker.model.ExpensePreferencesRepository
 import be.GitteWout.expensestracker.model.ImageFileRepository
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
 
 
 class AddExpenseFragment : Fragment(R.layout.fragment_addexpense) {
@@ -37,12 +40,13 @@ class AddExpenseFragment : Fragment(R.layout.fragment_addexpense) {
         main = activity as MainActivity
         expenseRepository = ExpensePreferencesRepository(requireActivity())
 
-
         binding.btnAddExpense.setOnClickListener {
+            main.hideKeyboard(it)
             addExpense()
         }
 
         binding.btnAddPicture.setOnClickListener {
+            main.hideKeyboard(it)
             takePicture()
         }
 
@@ -58,25 +62,33 @@ class AddExpenseFragment : Fragment(R.layout.fragment_addexpense) {
         val naam = binding.txtExpenseNaam.text.toString()
         val bedragString = binding.txtExpenseBedrag.text.toString()
         if (naam.isNotBlank() && bedragString.isNotBlank()) {
+            binding.btnAddExpense.setChipBackgroundColorResource(R.color.Persian_blue)
             val bedrag = bedragString.toDouble()
             image?.let {
                 expenseImagePath = "Image_${naam}"
                 val imageRepository = ImageFileRepository(requireContext())
                 imageRepository.saveImage(it, expenseImagePath!!)
             }
-
-            val expense = Expense(naam, bedrag, expenseImagePath)
+            val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+            val date = LocalDate.now().format(formatter)
+            val expense = Expense(naam, bedrag, expenseImagePath, date)
             expenseRepository.saveExpense(expense)
             findNavController().navigate(R.id.action_addExpenseFragment_to_expenseLijstFragment)
-        } else if (naam.isNotBlank() && bedragString.isBlank()) {
+        }
+        else if (naam.isNotBlank() && bedragString.isBlank()) {
             Toast.makeText(requireContext(), "Geen bedrag ingevuld", Toast.LENGTH_LONG)
                 .show()
-        } else if (naam.isBlank() && bedragString.isNotBlank()) {
+            binding.btnAddExpense.setBackgroundColor(resources.getColor(R.color.indigo_nonClickable))
+        }
+        else if (naam.isBlank() && bedragString.isNotBlank()) {
             Toast.makeText(requireContext(), "Geen naam ingevuld", Toast.LENGTH_LONG)
                 .show()
-        } else if (naam.isBlank() && bedragString.isBlank()) {
+            binding.btnAddExpense.setBackgroundColor(resources.getColor(R.color.indigo_nonClickable))
+        }
+        else if (naam.isBlank() && bedragString.isBlank()) {
             Toast.makeText(requireContext(), "Geen naam en geen bedrag ingevuld", Toast.LENGTH_LONG)
                 .show()
+            binding.btnAddExpense.setBackgroundColor(resources.getColor(R.color.indigo_nonClickable))
         }
     }
 

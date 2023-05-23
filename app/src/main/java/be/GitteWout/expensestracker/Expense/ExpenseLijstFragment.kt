@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import be.GitteWout.expensestracker.MainActivity
-import com.example.expensestracker.R
-import com.example.expensestracker.databinding.FragmentExpenselijstBinding
+import be.GitteWout.expensestracker.R
+import be.GitteWout.expensestracker.databinding.FragmentExpenselijstBinding
 import be.GitteWout.expensestracker.model.Expense
 import be.GitteWout.expensestracker.model.ExpensePreferencesRepository
 import be.GitteWout.expensestracker.model.ExpenseRepository
@@ -22,7 +22,6 @@ class ExpenseLijstFragment : Fragment(R.layout.fragment_expenselijst) {
     private lateinit var main: MainActivity
     private lateinit var adapter: ExpenseLijstAdapter
     private lateinit var expenseRepository: ExpenseRepository
-    private var counter = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,

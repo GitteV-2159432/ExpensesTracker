@@ -3,8 +3,10 @@ package be.GitteWout.expensestracker.model
 import android.content.Context
 import androidx.core.content.edit
 import androidx.fragment.app.FragmentActivity
-import com.example.expensestracker.R
+import be.GitteWout.expensestracker.R
 import com.google.gson.Gson
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class ExpensePreferencesRepository(val activity: FragmentActivity) : ExpenseRepository {
     override fun saveExpense(expense: Expense) {
@@ -47,7 +49,9 @@ class ExpensePreferencesRepository(val activity: FragmentActivity) : ExpenseRepo
         val expenseJSON = sharedPref.getString(naam, "NOTHING")
         if (expenseJSON.equals("NOTHING")) {
             System.out.println("expense " + naam + " niet gevonden")
-            return Expense("NOTHING", 0.0, null)
+            val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+            val date = LocalDate.now().format(formatter)
+            return Expense("NOTHING", 0.0, null, date)
         }
         val expense = Gson().fromJson(expenseJSON, Expense::class.java)
         return expense

@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
-import com.example.expensestracker.R
+import be.GitteWout.expensestracker.R
 import be.GitteWout.expensestracker.model.Expense
 
 class DeleteExpenseAdapter(

@@ -2,12 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/mnu_navToDelete"
+        android:icon="@android:drawable/ic_menu_delete"
         android:title="Navigate to Delete expenses" />
     <item
         android:id="@+id/mnu_navToList"
         android:title="Navigate to Expenses List"/>
     <item
         android:id="@+id/mnu_navToAddExpense"
-        android:title="Add an expense"/>
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Add an expense" />
+    <item
+        android:id="@+id/mnu_callHelp"
+        android:icon="@android:drawable/ic_menu_call"
+        android:title="Call the Help Center " />
 
 </menu>

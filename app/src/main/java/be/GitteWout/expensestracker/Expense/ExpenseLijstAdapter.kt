@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.RecyclerView
-import com.example.expensestracker.R
+import be.GitteWout.expensestracker.R
 import be.GitteWout.expensestracker.model.Expense
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -36,7 +36,7 @@ class ExpenseLijstAdapter(val items: List<Expense>) :
             findViewById<TextView>(R.id.txtbedrag).text = '€' + expense.getBedrag().toString()
             val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
             val date = LocalDate.now().format(formatter)
-            findViewById<TextView>(R.id.txtDatum).text = date.toString()
+            findViewById<TextView>(R.id.txtDatum).text = expense.getDatum()
         }
     }
 

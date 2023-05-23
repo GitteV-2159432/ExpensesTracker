@@ -2,10 +2,11 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.plugin.serialization' version "1.8.0"
+
 }
 
 android {
-    namespace 'com.example.expensestracker'
+    namespace 'be.GitteWout.expensestracker'
     compileSdk 33
 
     defaultConfig {
@@ -52,4 +53,5 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
     // for exporting to json
     implementation("com.google.code.gson:gson:2.10.1")
+
 }

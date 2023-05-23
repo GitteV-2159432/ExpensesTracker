@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.expensestracker.R
-import com.example.expensestracker.databinding.FragmentExpensedetailBinding
+import be.GitteWout.expensestracker.R
+import be.GitteWout.expensestracker.databinding.FragmentExpensedetailBinding
 import be.GitteWout.expensestracker.model.ExpensePreferencesRepository
 import be.GitteWout.expensestracker.model.ImageFileRepository
 
@@ -31,6 +31,7 @@ class ExpenseDetailFragment : Fragment(R.layout.fragment_expensedetail) {
 
         binding.txtnaamDetail2.text = expense.getNaam()
         binding.txtBedragDetail2.text = "€" + expense.getBedrag().toString()
+        binding.txtExpenseDatum.text = expense.getDatum()
 
         expense.getImagePath().let {
             if (it != null) {

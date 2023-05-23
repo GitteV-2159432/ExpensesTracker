@@ -1,23 +1,25 @@
 package be.GitteWout.expensestracker.model
 
 
+import android.database.DatabaseUtils
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
+import java.time.LocalDate
+import java.util.Date
 
 @Serializable
 class Expense : java.io.Serializable {
     private var naam: String
     private var bedrag: Double
     private var id: Int = 0
-
-
-    //private var tag: Tag
+   @Contextual private var datum: String
     private val imagePath: String?
 
-    constructor(naam: String, bedrag: Double, imagePath: String?) {
+    constructor(naam: String, bedrag: Double, imagePath: String?, datum: String) {
         this.naam = naam
         this.bedrag = bedrag
-        // this.tag = tag
         this.imagePath = imagePath
+        this.datum = datum
     }
 
     fun getNaam(): String {
@@ -36,9 +38,9 @@ class Expense : java.io.Serializable {
         return imagePath
     }
 
-    /*  fun getTag(): Tag{
-          return tag
-      }*/
+      fun getDatum(): String{
+          return datum
+      }
     fun setId(id: Int) {
         this.id = id
     }
