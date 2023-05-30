@@ -11,7 +11,7 @@ import be.GitteWout.expensestracker.model.Expense
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class ExpenseLijstAdapter(val items: List<Expense>) :
+class ExpenseLijstAdapter(var expenseList: List<Expense>) :
     RecyclerView.Adapter<ExpenseLijstAdapter.ExpenseLijstViewHolder>() {
     private lateinit var parentFragment: ExpenseLijstFragment
 
@@ -25,7 +25,7 @@ class ExpenseLijstAdapter(val items: List<Expense>) :
     }
 
     override fun onBindViewHolder(holder: ExpenseLijstViewHolder, position: Int) {
-        val expense = items[position]
+        val expense = expenseList[position]
         holder.itemView.apply {
             setOnClickListener {
                 parentFragment.selecteerExpense(expense)
@@ -40,5 +40,10 @@ class ExpenseLijstAdapter(val items: List<Expense>) :
         }
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int = expenseList.size
+
+    fun filteredList(filteredList: List<Expense>){
+        expenseList = filteredList
+        notifyDataSetChanged()
+    }
 }

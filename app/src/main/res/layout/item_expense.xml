@@ -37,7 +37,7 @@
         android:id="@+id/txtExpenseNaam"
         android:layout_width="170dp"
         android:layout_height="30dp"
-        android:text="Expense"
+        android:text="Uitgave"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.564"

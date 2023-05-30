@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/mnu_navToDelete"
-        android:icon="@android:drawable/ic_menu_delete"
-        android:title="Navigate to Delete expenses" />
-    <item
         android:id="@+id/mnu_navToList"
-        android:title="Navigate to Expenses List"/>
+        android:title="Ga naar uitgave lijst"/>
     <item
         android:id="@+id/mnu_navToAddExpense"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="Add an expense" />
+        android:title="Voeg een uitgave toe" />
+    <item
+        android:id="@+id/mnu_navToDelete"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="Ga naar het delete scherm" />
     <item
         android:id="@+id/mnu_callHelp"
         android:icon="@android:drawable/ic_menu_call"
-        android:title="Call the Help Center " />
+        android:title="Bel het helpcentrum" />
 
 </menu>

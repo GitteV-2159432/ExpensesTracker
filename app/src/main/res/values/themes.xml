@@ -11,7 +11,8 @@
         <item name="colorTertiary">@color/Russian_violet</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
+        <item name="android:colorBackground">@color/lightpurpureus</item>
     </style>
 </resources>

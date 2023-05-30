@@ -32,7 +32,7 @@
             android:id="@+id/btnDeleteExpense"
             android:layout_width="50dp"
             android:layout_height="0dp"
-            android:background="@color/Dark_Purple"
+            android:background="?attr/colorPrimaryVariant"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

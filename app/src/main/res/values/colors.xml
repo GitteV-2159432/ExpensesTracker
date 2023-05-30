@@ -12,6 +12,7 @@
     <color name="Persian_blue">#5135B5</color>
     <color name="Persian_indigo">#30157D</color>
     <color name="Purpureus">#9B51AF</color>
+    <color name="lightpurpureus">#F4E7F4</color>
     <color name="Russian_violet">#3A0649</color>
     <color name="indigo_nonClickable">#8130157D</color>
 </resources>
