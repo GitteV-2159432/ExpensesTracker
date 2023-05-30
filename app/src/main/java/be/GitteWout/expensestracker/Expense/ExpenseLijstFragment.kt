@@ -50,7 +50,7 @@ class ExpenseLijstFragment : Fragment(R.layout.fragment_expenselijst) {
             findNavController().navigate(R.id.action_expenseLijstFragment_to_deleteExpenseFragment)
         }
 
-        binding.editTextSearch.doOnTextChanged{text, _, _, _ ->
+        binding.editTextSearch.doOnTextChanged { text, _, _, _ ->
             val expenseFilter = ExpenseFilter()
             adapter.filteredList(expenseFilter.filterExpenses(expenselijst, text))
         }

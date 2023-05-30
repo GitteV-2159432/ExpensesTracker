@@ -42,7 +42,7 @@ class ExpenseLijstAdapter(var expenseList: List<Expense>) :
 
     override fun getItemCount(): Int = expenseList.size
 
-    fun filteredList(filteredList: List<Expense>){
+    fun filteredList(filteredList: List<Expense>) {
         expenseList = filteredList
         notifyDataSetChanged()
     }

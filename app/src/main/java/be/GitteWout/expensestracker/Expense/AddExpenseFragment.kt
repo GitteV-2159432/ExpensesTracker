@@ -20,7 +20,6 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 
-
 class AddExpenseFragment : Fragment(R.layout.fragment_addexpense) {
 
     private lateinit var binding: FragmentAddexpenseBinding
@@ -74,16 +73,13 @@ class AddExpenseFragment : Fragment(R.layout.fragment_addexpense) {
             val expense = Expense(naam, bedrag, expenseImagePath, date)
             expenseRepository.saveExpense(expense)
             findNavController().navigate(R.id.action_addExpenseFragment_to_expenseLijstFragment)
-        }
-        else if (naam.isNotBlank() && bedragString.isBlank()) {
+        } else if (naam.isNotBlank() && bedragString.isBlank()) {
             Toast.makeText(requireContext(), "Geen bedrag ingevuld", Toast.LENGTH_LONG)
                 .show()
-        }
-        else if (naam.isBlank() && bedragString.isNotBlank()) {
+        } else if (naam.isBlank() && bedragString.isNotBlank()) {
             Toast.makeText(requireContext(), "Geen naam ingevuld", Toast.LENGTH_LONG)
                 .show()
-        }
-        else if (naam.isBlank() && bedragString.isBlank()) {
+        } else if (naam.isBlank() && bedragString.isBlank()) {
             Toast.makeText(requireContext(), "Geen naam en geen bedrag ingevuld", Toast.LENGTH_LONG)
                 .show()
         }

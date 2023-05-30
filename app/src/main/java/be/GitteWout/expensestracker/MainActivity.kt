@@ -75,11 +75,12 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun hideKeyboard(view: View){
+    fun hideKeyboard(view: View) {
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(view.windowToken,0)
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
-    fun callHelpcenter(){
+
+    fun callHelpcenter() {
         val callIntent: Intent = Uri.parse("tel:0000000000").let { number ->
             Intent(Intent.ACTION_DIAL, number)
         }
